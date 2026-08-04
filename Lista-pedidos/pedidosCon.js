@@ -26,7 +26,7 @@ export function alterarPedido(req, res) {
 }
 
 export function deletarPedido(req, res) {
-    const id = req.params.id
+    const id = Number(req.params.id)
 
     delete bancoDeDados[id]
 
