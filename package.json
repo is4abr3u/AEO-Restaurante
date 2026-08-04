@@ -1,0 +1,27 @@
+{
+  "name": "aeo-restaurante",
+  "version": "1.0.0",
+  "description": "Estação 7",
+  "keywords": [
+    "1234"
+  ],
+  "homepage": "https://github.com/is4abr3u/AEO-Restaurante#readme",
+  "bugs": {
+    "url": "https://github.com/is4abr3u/AEO-Restaurante/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/is4abr3u/AEO-Restaurante.git"
+  },
+  "license": "ISC",
+  "author": "Sistema estação 7",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
