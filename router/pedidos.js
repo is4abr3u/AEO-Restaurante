@@ -2,7 +2,7 @@ import express from "express"
 
 import {listarPedidos, cadastrarPedido,
      alterarPedido, 
-      deletarPedido} from "../controllers/pedidosCon.js"
+      deletarPedido} from "../Lista-pedidos/pedidosCon.js"
 const router = express.Router()
 
 router.get("/pedidos", listarPedidos)
