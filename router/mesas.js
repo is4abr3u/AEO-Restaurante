@@ -3,18 +3,18 @@ import bancoDeDados from "../repository/restaurante.js";
 
 const router = express.Router();
 
-// Listar mesas
-router.get("/", (req, res) => {
+// Listar todas as mesas
+router.get("/todas ", (req, res) => {
     const mesas = bancoDeDados.filter(item => item.tipo === "mesa");
     res.json(mesas);
 });
 
-// Cadastrar mesa
-router.post("/", (req, res) => {
-    const { numero, capacidade } = req.body;
+// Cadastrar uma mesa
+router.post("/cadastrar ", (req, res) => {
+    const { id, numero, capacidade } = req.body;
 
     const mesa = {
-        id: bancoDeDados.length + 1,
+        id,
         tipo: "mesa",
         numero,
         capacidade,
@@ -23,12 +23,14 @@ router.post("/", (req, res) => {
 
     bancoDeDados.push(mesa);
 
-    res.status(201).json(mesa);
+    res.status(201).json({
+        mensagem: "Mesa cadastrada com sucesso!",
+        mesa
+    });
 });
 
-// Alugar/Ocupar mesa
-router.put("/alugar/:id", (req, res) => {
-
+// Alugar uma mesa
+router.put("/reservar/:id", (req, res) => {
     const mesa = bancoDeDados.find(
         item => item.id == req.params.id && item.tipo === "mesa"
     );
@@ -41,7 +43,7 @@ router.put("/alugar/:id", (req, res) => {
 
     if (mesa.status === "Ocupada") {
         return res.status(400).json({
-            mensagem: "Mesa já está ocupada."
+            mensagem: "Essa mesa já está ocupada."
         });
     }
 
@@ -51,12 +53,10 @@ router.put("/alugar/:id", (req, res) => {
         mensagem: "Mesa alugada com sucesso!",
         mesa
     });
-
 });
 
-// Liberar mesa
+// Liberar uma mesa
 router.put("/liberar/:id", (req, res) => {
-
     const mesa = bancoDeDados.find(
         item => item.id == req.params.id && item.tipo === "mesa"
     );
@@ -70,10 +70,9 @@ router.put("/liberar/:id", (req, res) => {
     mesa.status = "Livre";
 
     res.json({
-        mensagem: "Mesa liberada!",
+        mensagem: "Mesa liberada com sucesso!",
         mesa
     });
-
 });
 
-export default router
+export default router;
