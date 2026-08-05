@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 
 
-// GET - listar todas
+// GET - listar todas (DEU BOA)
 app.get("/add/pessoa/id/", (req, res) => {
     res.send({ reservas: bancoDeDados })
 })
@@ -44,8 +44,7 @@ app.post("/add/pessoa/id", (req, res) => {
     res.status(201).send({ message: "Reserva cadastrada com sucesso", reserva: novaReserva })
 })
 
-// PUT - alterar cadastro (NAO DEU CERTO ESSA BOSTA)
-//aparentemente aqui é pra por router.put
+// PUT - alterar cadastro (DEU CERTO)
 app.put("/add/pessoa/id/:id", (req, res) => {
     const id = req.params.id
     const { nome, dataReserva, status } = req.body
