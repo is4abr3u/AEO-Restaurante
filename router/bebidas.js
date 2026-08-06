@@ -2,7 +2,7 @@ import express from "express"
 import bancoDeDados from "../repository/restaurante.js"
 
 const router = express.Router()
-
+//listar todas
 router.get("/todas", (req, res) => {
   const bebidas = bancoDeDados.filter(item => item.tipo === "bebida")
   res.json(bebidas);
