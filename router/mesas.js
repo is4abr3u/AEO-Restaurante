@@ -1,16 +1,16 @@
-import express from "express";
-import bancoDeDados from "../repository/restaurante.js";
+import express from "express"
+import bancoDeDados from "../repository/restaurante.js"
 
-const router = express.Router();
+const router = express.Router()
 
 // Listar todas as mesas
-router.get("/todas ", (req, res) => {
+router.get("/todas", (req, res) => {
     const mesas = bancoDeDados.filter(item => item.tipo === "mesa");
-    res.json(mesas);
+    res.json(mesas)
 });
 
 // Cadastrar uma mesa
-router.post("/cadastrar ", (req, res) => {
+router.post("/cadastrar", (req, res) => {
     const { id, numero, capacidade } = req.body;
 
     const mesa = {
@@ -47,7 +47,7 @@ router.put("/reservar/:id", (req, res) => {
         });
     }
 
-    mesa.status = "Ocupada";
+    mesa.status = "Ocupada"
 
     res.json({
         mensagem: "Mesa alugada com sucesso!",
@@ -67,7 +67,7 @@ router.put("/liberar/:id", (req, res) => {
         });
     }
 
-    mesa.status = "Livre";
+    mesa.status = "Livre"
 
     res.json({
         mensagem: "Mesa liberada com sucesso!",
