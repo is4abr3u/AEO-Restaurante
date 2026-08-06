@@ -1,3 +1,3 @@
 const bancoDeDados = []
 
-export default bancoDeDados;
+export default bancoDeDados
