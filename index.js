@@ -1,9 +1,12 @@
-import express from "express"
+import express from 'express'
+import pratos from './router/pratos.js'
 
 const app = express()
-app.use(express.json)
 
+app.use(express.json())
+
+app.use('/add/v1/pratos/', pratos)
 
 app.listen(3000, () => {
-    console.log("Servidor Rodando")
+    console.log("Servidor escutando na porta 3000")
 })
