@@ -5,7 +5,7 @@ const app = express()
 
 app.use(express.json())
 
-app.use('/api/v1/pratos', pratos)
+app.use('/add/v1/pratos/', pratos)
 
 app.listen(3000, () => {
     console.log("Servidor escutando na porta 3000")

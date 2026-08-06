@@ -1,9 +1,10 @@
 import express from 'express'
 import bancoDeDados from '../repository/restaurante.js'
 
-const router = express.Router()
+const app = express()
 
-router.post("/", (req, res) => {
+// cadastrar 
+app.post("/add/v1/pratos/id", (req, res) => {
     const { id, nome, descricao, preco } = req.body
 
     if (!id || !nome || !preco) {
@@ -23,13 +24,13 @@ router.post("/", (req, res) => {
     res.status(201).send({ message: "Prato adicionado com sucesso!", prato })
 })
 
-
-router.get("/", (req, res) => {
+//buscar todos
+app.get("/add/v1/pratos/id", (req, res) => {
     res.send({ message: "Pratos encontrados com sucesso!", pratos: bancoDeDados })
 })
 
-
-router.get("/:id", (req, res) => {
+// buscar 1 
+app.get("/add/v1/pratos/id/:id", (req, res) => {
     const id = Number(req.params.id)
 
     const prato = bancoDeDados.find(p => p.id === id)
@@ -42,8 +43,8 @@ router.get("/:id", (req, res) => {
     res.send({ message: "Prato encontrado com sucesso!", prato })
 })
 
-
-router.put("/:id", (req, res) => {
+//alterar 
+app.put("/add/v1/pratos/id/:id", (req, res) => {
     const id = Number(req.params.id)
     const { nome, descricao, preco } = req.body
 
@@ -66,8 +67,8 @@ router.put("/:id", (req, res) => {
     res.send({ message: "Prato alterado com sucesso!", prato })
 })
 
-
-router.delete("/:id", (req, res) => {
+// deletar 
+app.delete("/add/v1/pratos/id/:id", (req, res) => {
     const id = Number(req.params.id)
 
     const index = bancoDeDados.findIndex(p => p.id === id)
@@ -82,4 +83,8 @@ router.delete("/:id", (req, res) => {
     res.send({ message: "Prato removido com sucesso!" })
 })
 
-export default router
+app.listen(3000, () => {
+    console.log('Servidor escutando na porta 3000')
+})
+
+export default app
