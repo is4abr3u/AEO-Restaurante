@@ -18,9 +18,9 @@ export function cadastrarPedido(req, res) {
 export function alterarPedido(req, res) {
     const id = req.params.id
 
-    bancoDeDados[id] //= req.body
+    bancoDeDados[id] = req.body
     res.status(200).send({
-        message: "Pedido alterado"
+        message: "Pedido alterado"+bancoDeDados
 
     })
 }
