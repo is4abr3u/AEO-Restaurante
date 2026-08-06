@@ -7,12 +7,12 @@ const app = express()
 app.use(express.json())
 
 
-// GET - listar todas (DEU BOA)
+// listar todas 
 app.get("/add/pessoa/id/", (req, res) => {
     res.send({ reservas: bancoDeDados })
 })
 
-// GET - buscar 1 pelo numero da mesa que é o id (DEU BOA MANOOOOO)
+//buscar 1 pelo numero da mesa que é o id 
 app.get("/add/pessoa/id/:id", (req, res) => {
     const id = req.params.id
     const reserva = bancoDeDados.find(it => it.id == id)
@@ -24,7 +24,7 @@ app.get("/add/pessoa/id/:id", (req, res) => {
     res.send({ reserva })
 })
 
-// POST - cadastrar cliente (TA CERTO, VAI TOMANDO)
+// cadastrar cliente
 app.post("/add/pessoa/id", (req, res) => {
     const { nome, id, dataReserva } = req.body 
     const status = req.query.status || "ativa"
@@ -44,7 +44,7 @@ app.post("/add/pessoa/id", (req, res) => {
     res.status(201).send({ message: "Reserva cadastrada com sucesso", reserva: novaReserva })
 })
 
-// PUT - alterar cadastro (DEU CERTO)
+// alterar cadastro 
 app.put("/add/pessoa/id/:id", (req, res) => {
     const id = req.params.id
     const { nome, dataReserva, status } = req.body
@@ -61,7 +61,7 @@ app.put("/add/pessoa/id/:id", (req, res) => {
     res.send({ message: "Reserva atualizada com sucesso", reserva })
 })
 
-// DELETE - deletar cadastro (FUNCIONOU TBMMMMMM, VAMOOOOOO)
+// deletar cadastro
 app.delete("/add/pessoa/id/:id", (req, res) => {
     const id = req.params.id
     const index = bancoDeDados.find(it => it.id == id)
