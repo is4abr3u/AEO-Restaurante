@@ -3,6 +3,9 @@ import bebidasRouter from './router/bebidas.js'
 
 const app = express()
 
+app.use(express.json());
+
+app.use('/bebidas', bebidasRouter);
 
 app.use(express.json())
 
