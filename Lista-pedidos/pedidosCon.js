@@ -7,12 +7,16 @@ export function listarPedidos(req, res) {
 }
 
 export function cadastrarPedido(req, res) {
-    bancoDeDados.push(req.body)
+    const {id, cliente, entrada, prato, bebida} = req.body
 
-    res.status(200).send({
-        message: "Pedido cadastrado"
+    if (!id || !cliente || !entrada || !prato || !bebida){
+        res.status(200).send({messagem: "Favor informar todos os dados"})
+        return
+    }
 
-    })
+    bancoDeDados.push({id, cliente, entrada, prato, bebida})
+    res.status(200).send({menssage: "Pedido feito com sucesso"})
+
 }
 
 export function alterarPedido(req, res) {
