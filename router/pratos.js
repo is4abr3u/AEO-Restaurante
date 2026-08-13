@@ -1,13 +1,13 @@
 import express from 'express'
 import bancoDeDados from '../repository/restaurante.js'
 
-const app = express()
+const router = express.Router()
 
-// cadastrar 
-app.post("/add/v1/pratos/id", (req, res) => {
+// cadastrar
+router.post("/", (req, res) => {
     const { id, nome, descricao, preco } = req.body
 
-    if (!id || !nome || !preco) {
+    if (!id || !nome || !descricao || !preco) {
         res.status(400).send({ message: "Parâmetros inválidos!" })
         return
     }
@@ -24,13 +24,13 @@ app.post("/add/v1/pratos/id", (req, res) => {
     res.status(201).send({ message: "Prato adicionado com sucesso!", prato })
 })
 
-//buscar todos
-app.get("/add/v1/pratos/id", (req, res) => {
+// buscar todos
+router.get("/", (req, res) => {
     res.send({ message: "Pratos encontrados com sucesso!", pratos: bancoDeDados })
 })
 
-// buscar 1 
-app.get("/add/v1/pratos/id/:id", (req, res) => {
+// buscar 1
+router.get("/:id", (req, res) => {
     const id = Number(req.params.id)
 
     const prato = bancoDeDados.find(p => p.id === id)
@@ -43,8 +43,8 @@ app.get("/add/v1/pratos/id/:id", (req, res) => {
     res.send({ message: "Prato encontrado com sucesso!", prato })
 })
 
-//alterar 
-app.put("/add/v1/pratos/id/:id", (req, res) => {
+// alterar
+router.put("/:id", (req, res) => {
     const id = Number(req.params.id)
     const { nome, descricao, preco } = req.body
 
@@ -67,8 +67,8 @@ app.put("/add/v1/pratos/id/:id", (req, res) => {
     res.send({ message: "Prato alterado com sucesso!", prato })
 })
 
-// deletar 
-app.delete("/add/v1/pratos/id/:id", (req, res) => {
+// deletar
+router.delete("/:id", (req, res) => {
     const id = Number(req.params.id)
 
     const index = bancoDeDados.findIndex(p => p.id === id)
@@ -83,8 +83,4 @@ app.delete("/add/v1/pratos/id/:id", (req, res) => {
     res.send({ message: "Prato removido com sucesso!" })
 })
 
-app.listen(3000, () => {
-    console.log('Servidor escutando na porta 3000')
-})
-
-export default app
+export default router
