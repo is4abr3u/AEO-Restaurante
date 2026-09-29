@@ -1,20 +1,24 @@
 import express from "express"
-import clientes from './router/clientes.js'
-import bebidasRouter from "./router/bebidas.js"
-import mesas from "./router/mesas.js"
-import pratos from "./router/pratos.js"
-import pedidos from "./router/pedidos.js"
+import database from "./config/database.js"
 
 const app = express()
 
 app.use(express.json())
 
-app.use('/add/v1/bebidas', bebidasRouter)
-app.use('/add/v1/pratos/', pratos)
-app.use('/add/v1/pedidos/', pedidos)
-app.use('/add/v1/mesas', mesas)
-app.use('/add/v1/clientes', clientes)
+//app.use('/api/v1/restaurante/pedidos' , Routerpedidos )
+//app.use('/api/v1/restaurante/clientes' , Routerclientes )
+//app.use('/api/v1/restaurante/mesas' , Routermesas )
+//app.use('/api/v1/restaurante/bebidas' , Routerbebidas )
+//app.use('/api/v1/restaurante/pratos' , Routerpratos )
 
-app.listen(3000, () => {
-    console.log("Servidor escutando na porta 3000")
+database.db
+    .sync({ force: false })
+    .then((_) => {
+        app.listen(3000, () => {
+            console.log("Servidor rodando na porta 3000")
+        })
+    })
+
+.catch((e) => {
+    console.log(e)
 })
