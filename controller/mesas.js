@@ -1,12 +1,12 @@
-import ServiceMe from "../service/cliente.js"
+import ServiceMesa from "../service/mesas.js"
 
-class ControllerCliente {
+class ControllerMesa {
     ///////////////////////////
     async Criar(req, res) {
         try {
-            const { nome, email, senha } = req.body
+            const {qtdpessoas,area,qtdcriancas, disponivel} = req.body
 
-            await ServiceCliente.Criar(nome, email, senha)
+            await ServiceMesa.Criar(qtdpessoas,area,qtdcriancas, disponivel)
 
             res.status(201).send({
                 message:"Cadastrado com sucesso"
@@ -21,9 +21,9 @@ class ControllerCliente {
     ///////////////////////////
     async Buscar(_,res) {
         try{
-            const clientes = await ServiceCliente.Buscar()
+            const mesas = await ServiceMesa.Buscar()
             res.status(200).send({
-                message: clientes })
+                message: mesas })
         } catch (error) {
             res.status(500).send({
                 message: error.message
@@ -32,27 +32,25 @@ class ControllerCliente {
     }
     // ///////////////////////////
     async Detalhe(req, res) {
-        try {
+       try {
             const id = req.params.id
 
-            const cliente = await ServiceCliente.Detalhe(id)
+            const mesa = await ServiceMesa.BuscarUm(id)
 
-            res.status(200).send({
-                message:cliente
-            })
-        } catch(error) {
+            res.status(200).send({ mensagem: mesa })
+        } catch (error) {
             res.status(500).send({
-                message: error.message
+                mensagem: error.message
             })
         }
     }
     // ///////////////////////////
     async Alterar(req,res ) {
         try {
-            const { nome, email, senha } = req.body
+            const { qtdpessoas,area,qtdcriancas, disponivel } = req.body
             const id = req.params.id
 
-            await ServiceCliente.Alterar(id, nome, email, senha)
+            await ServiceMesa.Alterar(id, qtdpessoas,area,qtdcriancas, disponivel)
 
             res.status(201).send({message:"Alterado com sucesso"})
         }catch (error) {
@@ -65,9 +63,9 @@ class ControllerCliente {
     // ///////////////////////////
     async Deletar(req, res) {
         try {
-            const identificador = req.params.id
+            const id = req.params.id
 
-            await ServiceCliente.Deletar( identificador)
+            await ServiceMesa.Deletar( id )
 
             res.status(204).send({
                 message :"Deletado"})
@@ -82,19 +80,5 @@ class ControllerCliente {
     
     ///////////////////////////
 
-    async Login(req,res){
-        try {
-            const {nome, email, senha} = req.body
-            const token = await ServiceCliente.Login(nome,email,senha)
-
-            res.status(200).send({
-               token 
-            })
-        } catch (error) {
-            res.status(500).send({
-                message :error.message
-            })
-        }
-    }
 }
-export default new ControllerCliente()
+export default new ControllerMesa()

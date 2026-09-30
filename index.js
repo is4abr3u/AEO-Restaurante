@@ -1,4 +1,5 @@
 import express from "express"
+import mesas from './router/mesas.js'
 import database from "./config/database.js"
 
 const app = express()
@@ -7,7 +8,7 @@ app.use(express.json())
 
 //app.use('/api/v1/restaurante/pedidos' , Routerpedidos )
 //app.use('/api/v1/restaurante/clientes' , Routerclientes )
-//app.use('/api/v1/restaurante/mesas' , Routermesas )
+app.use('/api/v1/restaurante/mesas' , mesas )
 //app.use('/api/v1/restaurante/bebidas' , Routerbebidas )
 //app.use('/api/v1/restaurante/pratos' , Routerpratos )
 

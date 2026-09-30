@@ -1,6 +1,6 @@
-import mesas from '../model/mesas.js';
+import mesa from '../model/mesas.js';
 
-class RepositoryMesas {
+class RepositoryMesa {
 ////////////////////////////////////
     async Create(qtdpessoas,area,qtdcriancas, disponivel) {
         const mesaCreate = await mesa.create({ qtdpessoas , area, qtdcriancas, disponivel })
