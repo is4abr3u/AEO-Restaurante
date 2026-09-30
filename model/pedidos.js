@@ -44,4 +44,4 @@ constructor(){
 }
 
 }
-export default ModelPedidos().model
+export default new ModelPedidos().model

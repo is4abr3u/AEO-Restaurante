@@ -1,6 +1,6 @@
 import express from "express"
 import database from "./config/database.js"
-import  Routerpedidos from './router/restaurante.js'
+import  Routerpedidos from './router/pedidos.js'
 const app = express()
 
 app.use(express.json())
@@ -16,7 +16,7 @@ app.use('/api/v1/restaurante/pedidos' , Routerpedidos )
 //         })
 
 database.db
-    .sync({ force: false })
+    .sync({ force: true })
     .then((_) => {
         app.listen(3000, () => {
             console.log("Servidor rodando na porta 3000")
