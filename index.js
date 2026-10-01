@@ -1,13 +1,17 @@
 import express from "express"
 import database from "./config/database.js"
-import  Routerpedidos from './router/pedidos.js'
+import mesas from './router/mesas.js'
+import  pedidos from './router/pedidos.js'
 import atendente from './router/atendente.js'
+
 const app = express()
 
 app.use(express.json())
 
+
+app.use('/api/v1/restaurante/mesas' , mesas )
 app.use("/api/v1/atendentes", atendente)
-app.use('/api/v1/restaurante/pedidos' , Routerpedidos )
+app.use('/api/v1/restaurante/pedidos' , pedidos )
 
 database.db
     .sync({ force: false })
