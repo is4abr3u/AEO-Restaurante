@@ -1,12 +1,22 @@
-import express from 'express';
-import bebidasRouter from './router/bebidas.js';
+import express from 'express'
+import bebidas from './router/bebidas.js'
+import database from './config/database.js'
 
 const app = express();
 
 app.use(express.json());
 
-app.use('/bebidas', bebidasRouter);
+app.use('/api/v1/restaurante/bebidas', bebidas )
 
-app.listen(3000, () => {
- console.log('Server running on port 3000');
-});
+database.db
+.sync({force: false})
+.then((_) => {
+    app.listen(3000, () => {
+        console.log("Servidor rodando na porta 3000")
+    })
+})
+
+.catch((e) => {
+    console.log(e)
+})
+
