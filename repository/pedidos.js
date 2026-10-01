@@ -48,15 +48,15 @@ async Delete(id){
 if(!id){
     throw new Error("Favor informar o id")
 }
-const carroDeletar = await ModelPedidos.findByPk(id)
+const pedidoDeletar = await ModelPedidos.findByPk(id)
 
-if(!carroDeletar){
+if(!pedidoDeletar){
     throw new Error("Pedido não encontrado")
 }
 
-await carroDeletar.destroy()
+await pedidoDeletar.destroy()
 
-return carroDeletar
+return pedidoDeletar
 }
 
 async Pagamento(id){
