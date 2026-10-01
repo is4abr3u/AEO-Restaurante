@@ -1,15 +1,13 @@
 import express from "express"
 import database from "./config/database.js"
+import Routerpratos from "./router/pratos.js"
 
 const app = express()
 
 app.use(express.json())
 
-//app.use('/api/v1/restaurante/pedidos' , Routerpedidos )
-//app.use('/api/v1/restaurante/clientes' , Routerclientes )
-//app.use('/api/v1/restaurante/mesas' , Routermesas )
-//app.use('/api/v1/restaurante/bebidas' , Routerbebidas )
-//app.use('/api/v1/restaurante/pratos' , Routerpratos )
+
+app.use('/api/v1/restaurante/pratos' , Routerpratos )
 
 database.db
     .sync({ force: false })
