@@ -1,73 +1,69 @@
 import ServicePratos from '../service/pratos.js'
 
 class ControllerPratos {
+async Buscar(req, res) {
+    try {
 
-    // Recebimento e a Saida das info 
-    async Buscar(_, res) {
-        try {
-            const pratos = await ServicePratos.Buscar()
-            res.send({ mensagem: pratos })
-        } catch (error) {
-            res.status(500).send({
-                mensagem: error.message
-            })
-        }
+        const restaurante = await ServicePratos.Buscar()
+
+        res.status(201).send({mensagem: restaurante})
+    } catch (error) {
+        res.status(500).send({mensagem: error.message})
     }
+}
 
-    async Detalhe(req, res) {
-        try {
-            const nome = req.params.nome
+async BuscarUm(req, res)  {
+    try {
+        const id = Number(req.params.id)
 
-            const pratos = await ServicePratos.Detalhe(nome)
+const restaurante = await ServicePratos.Buscarum(id)
 
-            res.send({ mensagem: pratos })
-        } catch (error) {
-            res.status(500).send({
-                mensagem: error.message
-            })
-        }
+        res.status(201).send({mensagem: restaurante})
+
+    } catch (error) {
+        res.status(500).send({mensagem: error.message})
     }
+}
 
+async Criar(req, res)  {
+    try {
+        const {nome, preco, categoria, descricao} = req.body
 
-    Criar(req, res) {
-        try {
-            const { nome, preco, categoria, descrição } = req.body
+await ServicePratos.Criar(nome, preco, categoria, descricao)
 
-            ServicePratos.Criar(nome, preco, categoria, descrição)
+res.status(201).send({mensagem: "Consulta marcada com sucesso"})
 
-            res.send({ mensagem: "Cadastrado com sucesso" })
-        } catch (error) {
-            res.status(500).send({
-                mensagem: error.message
-            })
-        }
+    } catch (error) {
+        res.status(500).send({mensagem: error.message})
     }
+}
 
+async Alterar(req, res)  {
+    try {
+        const id = Number(req.params.id) 
+        const {nome, preco, categoria, descricao} = req.body
 
-    Alterar(req, res) {
-        try {
-            ServicePratos.Alterar
-        } catch (error) {
-            res.status(500).send({
-                mensagem: error.message
-            })
-        }
+await ServicePratos.Alterar(id, nome, preco, categoria, descricao)
+
+res.status(201).send({mensagem: "Pedido alterado com sucesso!"})
+
+    } catch (error) {
+        res.status(500).send({mensagem: error.message})
     }
+}
 
+async Deletar(req, res)  {
+    try {
+        const id = Number(req.params.id)
 
-    Deletar(req, res) {
-        try {
-            const nome = req.body.nome
+     await   ServicePratos.Deletar(id)
 
-            ServicePratos.Deletar(nome)
+res.status(201).send({mensagem: "Pedido cancelado com sucesso"})
 
-            res.send({mensagem: "Deletado" })
-        } catch (error) {
-            res.status(500).send({
-                mensagem: error.message
-            })
-        }
+    } catch (error) {
+        res.status(500).send({mensagem: error.message})
     }
+}
 
 }
 export default new ControllerPratos()

@@ -1,21 +1,34 @@
-import database from "../config/database.js";
+import Database from "../config/database.js"
 
-class Pratos {
-    constructor() {
-        this.model = database.db.define("pratos", {
-            id: {
-                type: database.db.Sequelize.INTEGER,
-                primaryKey: true,
-                autoIncrement: true
-            },
-            marca: {
-                type: database.db.Sequelize.STRING,
-            },
-            ano: {
-                type: database.db.Sequelize.INTEGER,
-            }
-        })
-    }
+class Model{
+constructor(){
+    this.model = Database.db.define("pratos", {
+id: {
+   type: Database.db.Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+},
+
+nome:{
+    type: Database.db.Sequelize.STRING
+},
+
+preco:{
+    type: Database.db.Sequelize.STRING
+},
+
+categoria:{
+    type: Database.db.Sequelize.STRING
+},
+
+
+descricao:{
+    type: Database.db.Sequelize.STRING
+},
+
+})
+}
 }
 
-export default new Pratos().model
+export default new Model().model
+//id, nome, preco, categoria, descricao pratos
