@@ -43,10 +43,10 @@ class ServiceMesa {
 
     async Deletar(id) {
         if(!id) {
-            throw new Error("Favor informar todos os dados.")
+            throw new Error("Favor informar o id.")
         }
 
-        const mesa = await RepositoryMesa.Deletar(id)
+        const mesa = await RepositoryMesa.Delete(id)
 
         return mesa
     }

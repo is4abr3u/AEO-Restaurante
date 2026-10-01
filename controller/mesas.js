@@ -63,15 +63,15 @@ class ControllerMesa {
     // ///////////////////////////
     async Deletar(req, res) {
         try {
-            const id = req.params.id
+            const identificador = req.params.id
 
-            await ServiceMesa.Deletar( id )
+            await ServiceMesa.Deletar(identificador)
 
             res.status(204).send({
-                message :"Deletado"})
+                mensagem :"Deletado"})
         } catch (error) {
             res.status(500).send({
-                message: error.message
+                mensagem: error.message
             })
         }
 
