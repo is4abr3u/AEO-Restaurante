@@ -1,15 +1,11 @@
-import express from "express"
-import database from "./config/database.js"
+import express from 'express'
+import atendente from './router/atendente.js'
+import database from './config/database.js'
 
 const app = express()
-
 app.use(express.json())
 
-//app.use('/api/v1/restaurante/pedidos' , Routerpedidos )
-//app.use('/api/v1/restaurante/clientes' , Routerclientes )
-//app.use('/api/v1/restaurante/mesas' , Routermesas )
-//app.use('/api/v1/restaurante/bebidas' , Routerbebidas )
-//app.use('/api/v1/restaurante/pratos' , Routerpratos )
+app.use("/api/v1/atendentes", atendente)
 
 database.db
     .sync({ force: false })
@@ -18,7 +14,6 @@ database.db
             console.log("Servidor rodando na porta 3000")
         })
     })
-
-.catch((e) => {
-    console.log(e)
-})
+    .catch((e) => {
+        console.log(e)
+    })
