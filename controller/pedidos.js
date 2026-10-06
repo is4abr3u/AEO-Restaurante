@@ -48,7 +48,6 @@ await ServicePedidos.Alterar(id, nome, entrada, prato,  bebida, quantidade, form
      
 
             res.status(200).send({message: "Pedido alterado com sucesso!"})
-res.status(200).send()
     } catch (error) {
         res.status(500).send({message: error.message})
     }

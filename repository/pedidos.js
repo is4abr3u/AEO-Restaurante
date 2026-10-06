@@ -15,16 +15,16 @@ async Findall(id){
 }
 
 
-async Create(nome, entrada, prato,  bebida, quantidade, formadepagamento, pago,){
+async Create(nome, entrada, prato,  bebida, quantidade, formadepagamento, pago){
 
-const criarpedido = await ModelPedidos.create({nome, entrada, prato,  bebida, quantidade, formadepagamento, pago,})
+const criarpedido = await ModelPedidos.create({nome, entrada, prato,  bebida, quantidade, formadepagamento, pago})
 
 
 return criarpedido
 }
 
 
-async Update(id, nome, entrada, prato,  bebida, quantidade, formadepagamento, pago,){
+async Update(id, nome, entrada, prato,  bebida, quantidade, formadepagamento, pago){
 
 const pedidoUpdate = await ModelPedidos.findByPk(id)
 

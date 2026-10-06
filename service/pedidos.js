@@ -13,7 +13,7 @@ async Buscarum(id){
         throw new Error("Favor informar o id")
     }
 
-  const pedido = await BancoDeDados.Find(id)
+  const pedido = await BancoDeDados.Findall(id)
 
         if(!pedido){
             throw new Error ("Pedido não encontrado")
@@ -34,12 +34,12 @@ return pedidocriar
 }
 
 async Alterar(id, nome, entrada, prato, bebida, quantidade, formadepagamento, pago){
-
+    
+    
+   if(!nome || !entrada || !prato  || !bebida || !quantidade || !formadepagamento || !pago ){
+       throw new Error   ( "Parâmetros inválidos")
+      }
     const pedido = await BancoDeDados.Update(id, nome, entrada, prato, bebida, quantidade, formadepagamento, pago)
-      
-     if(!nome || !entrada || !prato  || !bebida || !quantidade || !formadepagamento || !pago ){
-         throw new Error   ( "Parâmetros inválidos")
-        }
 
    
 

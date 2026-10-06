@@ -37,7 +37,7 @@ constructor(){
         pago:{
             type: Database.db.Sequelize.BOOLEAN,
             allowNull: true,
-            defaultValue: true
+            defaultValue: false
         }
 
     })
