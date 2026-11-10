@@ -38,7 +38,7 @@ return Pedido1
         const Pedido2 = RepositoryPratos.Update(id, nome, preco, categoria, descricao)
 
 if(!Pedido2){
-    throw new Error ("Pedido não encontrada")
+    throw new Error ("Pedido não encontrado")
 }
 
 
@@ -52,7 +52,7 @@ async Deletar(id){
     const Pedido3 = RepositoryPratos.Delete(id)
 
         if(Pedido3 === -1){
-            throw new Error ("Pedido não encontrada")
+            throw new Error ("Pedido não encontrado")
             
         }
 

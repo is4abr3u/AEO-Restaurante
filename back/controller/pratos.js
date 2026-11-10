@@ -31,7 +31,7 @@ async Criar(req, res)  {
 
 await ServicePratos.Criar(nome, preco, categoria, descricao)
 
-res.status(201).send({mensagem: "Consulta marcada com sucesso"})
+res.status(201).send({mensagem: "Prato criado com sucesso"})
 
     } catch (error) {
         res.status(500).send({mensagem: error.message})
