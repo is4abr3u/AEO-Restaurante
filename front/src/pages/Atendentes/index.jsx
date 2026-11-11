@@ -1,16 +1,8 @@
 import { useEffect, useState } from 'react'
-import { getAtendentes } from '../../api/atendentes'
+import { buscarAtendentes } from '../../api/atendentes'
 import './style.css'
 
 function Atendentes() {
-    const [atendentes, setAtendentes] = useState([])
-    const [error, setError] = useState('')
-
-    useEffect(() => {
-        getAtendentes()
-            .then((response) => setAtendentes(response.Atendentes))
-            .catch(() => setError('Não foi possível carregar a lista de atendentes.'))
-    }, [])
 
     if (error) return <p>{error}</p>
 
@@ -31,16 +23,16 @@ function Atendentes() {
                     </tr>
                 </thead>
                 <tbody>
-                    {atendentes.map((a) => (
-                        <tr key={a.id}>
-                            <td>{a.id}</td>
-                            <td>{a.nome}</td>
-                            <td>{a.cpf}</td>
-                            <td>{a.ativo}</td>
-                            <td>{a.turno}</td>
-                            <td>{a.telefone}</td>
-                            <td>{a.rep}</td>
-                            <td>{a.email}</td>
+                    {atendentes.map((atendentes) => (
+                        <tr key={atendentes.id}>
+                            <td>{atendentes.id}</td>
+                            <td>{atendentes.nome}</td>
+                            <td>{atendentes.cpf}</td>
+                            <td>{atendentes.ativo}</td>
+                            <td>{atendentes.turno}</td>
+                            <td>{atendentes.telefone}</td>
+                            <td>{atendentes.rep}</td>
+                            <td>{atendentes.email}</td>
                         </tr>
                     ))}
                 </tbody>
