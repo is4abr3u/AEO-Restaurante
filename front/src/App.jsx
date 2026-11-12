@@ -6,10 +6,10 @@ import { Route, Routes } from 'react-router-dom'
 import PrivateRoute from './routes/PrivateRoute'
 import Atendentes from './pages/Atendentes'
 import SignIn from './pages/SignIn'
-import Mesas from '../../back/model/mesas'
-import Pedidos from '../../back/model/pedidos'
-import Bebidas from '../../back/model/bebidas'
-import Pratos from '../../back/model/pratos'
+import Mesas from './pages/Mesas'
+import Pedidos from './pages/Pedidos'
+import Bebidas from './pages/Bebidas'
+import Pratos from './pages/Pratos'
 
 function App() {
   return (
@@ -33,3 +33,5 @@ function App() {
     </>
   )
 }
+
+export default App

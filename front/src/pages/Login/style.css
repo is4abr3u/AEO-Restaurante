@@ -1,0 +1,9 @@
+.signup {
+  color: #0056b3;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.signup:hover {
+  text-decoration: underline;
+}

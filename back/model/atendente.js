@@ -12,30 +12,38 @@ class Atendente {
             },
             nome: {
                 type: database.db.Sequelize.STRING,
+                allowNull: true
             },
             cpf: {
                 type: database.db.Sequelize.STRING,
+                allowNull: true,
+                unique: true
             },
             ativo: {
                 type: database.db.Sequelize.BOOLEAN,
             },
             turno: {
                 type: database.db.Sequelize.STRING,
+                allowNull: true
             },
             telefone: {
                 type: database.db.Sequelize.STRING,
+                allowNull: true,
                 unique: true
             },
             Rep: {
                 type: database.db.Sequelize.INTEGER,
+                allowNull: true,
                 unique: true
             },
             email: {
                 type: database.db.Sequelize.STRING,
+                allowNull: true,
                 unique: true
             },
             senha: {
                 type: database.db.Sequelize.STRING,
+                allowNull: true
             }
         })
     }
