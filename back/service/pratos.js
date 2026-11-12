@@ -27,8 +27,8 @@ return Pedido1
     throw new Error ("Parametros invalidos")
 }
 
- const carrocriar =  await RepositoryPratos.Create(nome, preco, categoria, descricao)
- return carrocriar
+ const Pratocriar =  await RepositoryPratos.Create(nome, preco, categoria, descricao)
+ return Pratocriar
     }
 
  async   Alterar(id, nome, preco, categoria, descricao){
