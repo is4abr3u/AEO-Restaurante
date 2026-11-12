@@ -5,11 +5,12 @@ import mesas from './router/mesas.js'
 import pedidos from './router/pedidos.js'
 import atendente from './router/atendente.js'
 import pratos from "./router/pratos.js"
-
+import cors from 'cors'
 
 const app = express()
 
 app.use(express.json())
+app.use(cors())
 
 app.use('/api/v1/restaurante/bebidas', bebidas)
 app.use('/api/v1/restaurante/mesas', mesas)
