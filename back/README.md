@@ -13,5 +13,8 @@ ok
 
 ok
 
-# 
+# ajustes para a proxima
+
+- o front cadastra e manda pro banco
+- preciso ajustar o Turno na pagina de castro fazer com a tag radio com 2 opçcoes, tarde e noite. O restaurante nao abre pela manha 
 
