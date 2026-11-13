@@ -12,12 +12,12 @@ export default function Login() {
     e.preventDefault()
     const response = await loginAtendentes(email, senha)
     localStorage.setItem('token', response.token)
-    return navigate('/atendentes')
+    navigate('/atendentes')
   }
 
   return (
     <div className="login-container">
-      <form className="login-form">
+      <form className="login-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
         <div className="input-group">
           <label htmlFor="email">Email:</label>
@@ -39,19 +39,17 @@ export default function Login() {
             onChange={(e) => setSenha(e.target.value)}
           />
         </div>
-        <p>Não possui conta? <Link className="signup" to="/signIn">Cadastre-se</Link></p>
-        <button
-            className="button"
-            type="submit"
-            onClick={handleSubmit}
-        >Entrar</button>
-        <button
-            className="button back-button"
-            onClick={() => {}}
-        >
-          Voltar
-        </button>
+        <button className="button" type="submit">Entrar</button>
       </form>
+      <nav className="login-navigation" aria-label="Navegação pelas páginas">
+        <h2>Ir para uma página</h2>
+        <Link className="button" to="/signIn">Cadastrar-se</Link>
+        <Link className="button" to="/mesas">Mesas</Link>
+        <Link className="button" to="/pedidos">Pedidos</Link>
+        <Link className="button" to="/bebidas">Bebidas</Link>
+        <Link className="button" to="/pratos">Pratos</Link>
+        <Link className="button" to="/atendentes">Atendentes</Link>
+      </nav>
     </div>
   )
 }

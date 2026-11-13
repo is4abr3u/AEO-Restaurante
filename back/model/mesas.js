@@ -16,6 +16,7 @@ class Mesa {
             },
             qtdcriancas: {
                 type: database.db.Sequelize.INTEGER,
+                field: "qtdcrianca",
             },
             disponivel: {
                 type: database.db.Sequelize.STRING,

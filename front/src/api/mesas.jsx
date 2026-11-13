@@ -12,8 +12,8 @@ export const getCurrentMesas = async () => {
     return response.data
 }
 
-export const createMesas = async (qtdpessoas,area,salao,qtdcriancas,disponivel) => {
-    const response = await api.post('/v1/restaurante/mesas/criar', { qtdpessoas,area,salao,qtdcriancas,disponivel })
+export const createMesas = async (qtdpessoas, area, qtdcriancas, disponivel) => {
+    const response = await api.post('/v1/restaurante/mesas/criar', { qtdpessoas, area, qtdcriancas, disponivel })
 
     return response.data
 }

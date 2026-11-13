@@ -1,5 +1,6 @@
 import './style.css'
 import { useState } from 'react'
+import { createMesas } from '../../api/mesas'
 
 function CriarMesa() {
     // Cada estado mantém o valor atual de um campo controlado pelo React.
@@ -21,31 +22,23 @@ function CriarMesa() {
       setEnviando(true)
 
       try {
-        // Envia os dados como JSON para a rota de cadastro de mesas do backend.
-        const response = await fetch('http://localhost:3000/api/v1/restaurante/mesas/criar', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            // Inputs type="number" retornam string no estado; converte para número.
-            qtdpessoas: Number(qtdPessoas),
-            qtdcriancas: Number(qtdCriancas),
-            area: String(area),
-            // Os valores dos radios são strings no HTML; o backend recebe o número 0 ou 1.
-            disponivel: Number(disponivel)
-          })
-        })
-
-        // Lê a mensagem enviada pelo backend, tanto em caso de sucesso quanto de erro.
-        const data = await response.json()
-
-        if (!response.ok) {
-          throw new Error(data.message || data.mensagem || 'Falha ao cadastrar mesa.')
-        }
-
-        setMensagem(data.message || data.mensagem || 'Mesa cadastrada com sucesso.')
+        const data = await createMesas(
+          Number(qtdPessoas),
+          area.trim(),
+          Number(qtdCriancas),
+          disponivel
+        )
+        setMensagem(data.message || 'Mesa cadastrada com sucesso.')
+        setQtdPessoas('')
+        setQtdCriancas('')
+        setArea('')
+        setDisponivel('1')
       } catch (error) {
-        // Mostra a mensagem do backend ou um erro de conexão na interface.
-        setErro(error.message || 'Não foi possível conectar ao servidor.')
+        setErro(
+          error.response?.data?.message ||
+          error.message ||
+          'Não foi possível cadastrar a mesa.'
+        )
       } finally {
         // Reabilita o botão mesmo se a requisição falhar.
         setEnviando(false)
