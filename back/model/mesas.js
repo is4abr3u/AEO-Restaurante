@@ -9,13 +9,13 @@ class Mesa {
                 autoIncrement: true
             },
             qtdpessoas: { 
-                type: database.db.Sequelize.STRING,
+                type: database.db.Sequelize.INTEGER,
             },
             area : { 
                 type: database.db.Sequelize.STRING,
             },
-            qtdcrianca: { 
-                type: database.db.Sequelize.STRING,
+            qtdcriancas: {
+                type: database.db.Sequelize.INTEGER,
             },
             disponivel: {
                 type: database.db.Sequelize.STRING,
