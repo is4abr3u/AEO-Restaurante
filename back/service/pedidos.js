@@ -1,5 +1,19 @@
 import BancoDeDados from "../repository/pedidos.js";
 
+const validarPedido = (nome, prato, quantidade, pago) => {
+    if (
+        typeof nome !== "string" ||
+        !nome.trim() ||
+        typeof prato !== "string" ||
+        !prato.trim() ||
+        !Number.isInteger(Number(quantidade)) ||
+        Number(quantidade) <= 0 ||
+        typeof pago !== "boolean"
+    ) {
+        throw new Error("Parâmetros inválidos")
+    }
+}
+
 class ServicePedidos{
 
 async Buscar(){
@@ -23,25 +37,17 @@ return pedido
 }
 
 async Criar(nome, entrada, prato, bebida, quantidade, formadepagamento, pago){
+    validarPedido(nome, prato, quantidade, pago)
 
-     if(!nome || !entrada || !prato  || !bebida || !quantidade || !formadepagamento || !pago ){
-         throw new Error   ( "Parâmetros inválidos")
-        }
-
-        const pedidocriar = await BancoDeDados.Create(nome, entrada, prato, bebida, quantidade, formadepagamento, pago)
+    const pedidocriar = await BancoDeDados.Create(nome, entrada, prato, bebida, quantidade, formadepagamento, pago)
 
 return pedidocriar
 }
 
 async Alterar(id, nome, entrada, prato, bebida, quantidade, formadepagamento, pago){
+    validarPedido(nome, prato, quantidade, pago)
 
     const pedido = await BancoDeDados.Update(id, nome, entrada, prato, bebida, quantidade, formadepagamento, pago)
-      
-     if(!nome || !entrada || !prato  || !bebida || !quantidade || !formadepagamento || !pago ){
-         throw new Error   ( "Parâmetros inválidos")
-        }
-
-   
 
 return pedido
 }

@@ -1,0 +1,19 @@
+.pedidos-container{
+    max-width: 450px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+.pedidos-form{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #ffffff;
+    color: #222222;
+    padding: 20px;
+    border-radius: 8px;
+}
+.pedidos-form h2{
+    text-align: center;
+    margin: 0;
+}

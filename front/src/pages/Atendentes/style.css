@@ -1,0 +1,53 @@
+.atendentes-page {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 16px;
+}
+
+.atendente-card {
+    padding: 24px;
+    color: #222;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgb(0 0 0 / 10%);
+}
+
+.atendente-card h1 {
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+.atendente-table-wrapper {
+    overflow-x: auto;
+}
+
+.atendente-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.atendente-table th,
+.atendente-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.atendente-table th {
+    background: #f3f3f3;
+}
+
+.atendente-error {
+    color: #b42318;
+}
+
+@media (max-width: 600px) {
+    .atendente-card {
+        padding: 16px;
+    }
+
+    .atendente-table th,
+    .atendente-table td {
+        padding: 9px;
+    }
+}
