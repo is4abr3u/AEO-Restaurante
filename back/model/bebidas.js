@@ -14,7 +14,7 @@ class Bebidas {
             preco: {
                 type: database.db.Sequelize.FLOAT,
             },
-            tammanho: {
+            tamanho: {
                 type: database.db.Sequelize.STRING,
 
             },
