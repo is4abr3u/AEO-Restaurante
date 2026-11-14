@@ -11,7 +11,7 @@ if(!id){
     throw new Error ("Favor informar o id")
 }
 
-      const Pedido1 = await RepositoryPratos.Find(id)
+      const Pedido1 = await RepositoryPratos.Findall(id)
 
         if(!Pedido1){
             throw new Error ("Pedido não encontrada")

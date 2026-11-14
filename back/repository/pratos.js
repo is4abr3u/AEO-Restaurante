@@ -46,7 +46,7 @@ if(!pratos5){
     throw new Error("Prato não encontrado")
 }
 
-pratos5.destroy()
+await pratos5.destroy()
 
 return pratos5
 }

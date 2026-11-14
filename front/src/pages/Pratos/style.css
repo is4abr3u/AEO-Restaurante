@@ -1,0 +1,95 @@
+.pratos-page {
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 0 20px;
+  color: #333;
+}
+
+.pratos-page h1,
+.pratos-page h2 {
+  margin-top: 0;
+}
+
+.prato-form,
+.prato-card {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.prato-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+.prato-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.prato-form input {
+  padding: 9px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  font: inherit;
+}
+
+.prato-form-actions,
+.prato-card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.pratos-page button {
+  padding: 9px 14px;
+  border: 0;
+  border-radius: 5px;
+  background: #6b3f2a;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+}
+
+.pratos-page button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.pratos-page .prato-button-secondary {
+  background: #777;
+}
+
+.prato-message {
+  margin: 14px 0;
+  color: #276738;
+}
+
+.prato-error {
+  color: #b42318;
+}
+
+.prato-list {
+  margin-top: 28px;
+}
+
+.prato-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.prato-card h3 {
+  margin: 0;
+}
+
+.prato-card p {
+  margin: 10px 0;
+}
+
+.prato-card .prato-category {
+  color: #666;
+}
