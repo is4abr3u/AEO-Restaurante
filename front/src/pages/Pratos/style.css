@@ -13,7 +13,7 @@
 .prato-form,
 .prato-card {
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #e00e0e;
   border-radius: 8px;
   background: #fff;
 }
@@ -32,7 +32,7 @@
 
 .prato-form input {
   padding: 9px;
-  border: 1px solid #bbb;
+  border: 1px solid #070707;
   border-radius: 5px;
   font: inherit;
 }
