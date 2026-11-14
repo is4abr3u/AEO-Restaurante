@@ -1,19 +1,173 @@
-.pedidos-container{
-    max-width: 450px;
-    margin: 30px auto;
-    padding: 0 15px;
+.login-container {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.85fr) minmax(320px, 1.15fr);
+    align-items: start;
+    gap: 28px;
+    width: min(100% - 40px, 1050px);
+    margin: 40px auto;
+    text-align: left;
 }
 
-.pedidos-form{
+.login-form,
+.pedidos-lista {
+    padding: 28px;
+    border: 1px solid #f0dfd0;
+    border-radius: 18px;
+    background: #fffdf9;
+    box-shadow: 0 12px 30px rgba(89, 49, 24, 0.09);
+}
+
+.login-form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    background-color: #ffffff;
-    color: #222222;
-    padding: 20px;
-    border-radius: 8px;
+    gap: 16px;
 }
-.pedidos-form h2{
-    text-align: center;
-    margin: 0;
+
+.login-form h2,
+.pedidos-lista h2 {
+    margin: 0 0 8px;
+    color: #713b24;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.login-form h2::before {
+    content: "🍽️ ";
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-group label {
+    color: #5d4739;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.input-group input:not([type="checkbox"]) {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid #e6d7ca;
+    border-radius: 9px;
+    background: #fff;
+    color: #35251d;
+    font: inherit;
+    outline: none;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.input-group input:not([type="checkbox"]):focus {
+    border-color: #c76b36;
+    box-shadow: 0 0 0 3px rgba(199, 107, 54, 0.15);
+}
+
+.input-group:has(input[type="checkbox"]) {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #bd5b2c;
+}
+
+.button {
+    min-height: 42px;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 9px;
+    background: #bd5b2c;
+    color: #fff;
+    font: inherit;
+    font-weight: 650;
+    cursor: pointer;
+    transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.button:hover {
+    transform: translateY(-1px);
+    background: #98441f;
+}
+
+.button:focus-visible {
+    outline: 3px solid rgba(189, 91, 44, 0.35);
+    outline-offset: 2px;
+}
+
+.back-button {
+    border: 1px solid #e6d7ca;
+    background: #f5ede5;
+    color: #5d4739;
+}
+
+.back-button:hover {
+    background: #eaddcf;
+}
+
+.pedidos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.pedido-item {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px 16px;
+    padding: 18px;
+    border: 1px solid #f0dfd0;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.pedido-item p {
+    color: #5d4739;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.pedido-item p:first-child {
+    color: #713b24;
+    font-weight: 700;
+}
+
+.pedido-item .button {
+    margin-top: 6px;
+}
+
+.pedido-item .button + .button {
+    border: 1px solid #f0d7cf;
+    background: #fff1ed;
+    color: #9c3d2c;
+}
+
+.pedido-item .button + .button:hover {
+    background: #ffe2da;
+}
+
+@media (max-width: 760px) {
+    .login-container {
+        grid-template-columns: 1fr;
+        width: min(100% - 28px, 540px);
+        gap: 18px;
+        margin: 24px auto;
+    }
+
+    .login-form,
+    .pedidos-lista {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 420px) {
+    .pedido-item {
+        grid-template-columns: 1fr;
+    }
 }
