@@ -10,14 +10,14 @@ import Mesas from './pages/Mesas'
 import Pedidos from './pages/Pedidos'
 import Bebidas from './pages/Bebidas'
 import Pratos from './pages/Pratos'
-
+import Login from './pages/Login'
 
 function App() {
   return (
     <>
       <Header />
       <Routes>
-        {/* <Route path='/' element={<Login />} /> */}
+         <Route path='/' element={<Login />} /> 
         <Route path='/SignIn' element={<SignIn />} />
         <Route path='/Mesas' element={<Mesas />} />
         <Route path='/' element={<Pedidos />} />
