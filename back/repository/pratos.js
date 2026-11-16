@@ -25,7 +25,7 @@ async Update(id, nome, preco, categoria, descricao){
 const pratos4 = await Model.findByPk(id)
 
 if(!pratos4){
-    throw new Error("Consulta não encontrada")
+    throw new Error("Prato não encontrado")
 }
 
 pratos4.nome = nome
@@ -43,10 +43,10 @@ async Delete(id){
 const pratos5 = await Model.findByPk(id)
 
 if(!pratos5){
-    throw new Error("Consulta não encontrada")
+    throw new Error("Prato não encontrado")
 }
 
-pratos5.destroy()
+await pratos5.destroy()
 
 return pratos5
 }

@@ -6,10 +6,11 @@ import { Route, Routes } from 'react-router-dom'
 import PrivateRoute from './routes/PrivateRouter'
 import Atendentes from './pages/Atendentes'
 import SignIn from './pages/SignIn'
-import Mesas from './pages/mesas'
+import Mesas from './pages/Mesas'
 import Pedidos from './pages/Pedidos'
-import Bebidas from './pages/bebidas'
-import Pratos from './pages/pratos'
+import Bebidas from './pages/Bebidas'
+import Pratos from './pages/Pratos'
+
 
 function App() {
   return (
