@@ -1,9 +1,9 @@
 import api from './api'
 
-export const  getBebidas = async () => {
+export const getBebidas = async () => {
     const response = await api.get('/v1/restaurante/bebidas/buscar')
 
-    return response.data 
+    return response.data
 }
 
 export const getCurrentBebidas = async () => {
@@ -18,24 +18,24 @@ export const createBebidas = async (nome, preco, tamanho, disponivel) => {
         preco,
         tamanho,
         disponivel
-     })
+    })
 
     return response.data
 }
 
-export const updateCurrentBebidas = async (nome,tamanho,disponivel) => {
-    const response = await api.put('/v1/restaurante/bebidas/alterar', { 
+export const updateCurrentBebidas = async (nome, preco, tamanho, disponivel) => {
+    const response = await api.put('/v1/restaurante/bebidas/alterar', {
         nome,
         preco,
         tamanho,
         disponivel
-     })
+    })
 
     return response.data
 }
 
 export const deleteCurrentBebidas = async (id) => {
-    const response = await api.delete('/v1/restaurante/bebidas/deletar/s')
+    const response = await api.delete(`/v1/restaurante/bebidas/deletar/${id}`)
 
     return response.data
 }
