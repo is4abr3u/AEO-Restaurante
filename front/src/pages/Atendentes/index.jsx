@@ -23,7 +23,7 @@ function Atendentes() {
                     </tr>
                 </thead>
                 <tbody>
-                    {atendentes.map((atendentes) => (
+                    {Atendentes.map((atendentes) => (
                         <tr key={atendentes.id}>
                             <td>{atendentes.id}</td>
                             <td>{atendentes.nome}</td>
@@ -40,3 +40,5 @@ function Atendentes() {
         </main>
     )
 }
+
+export default Atendentes
