@@ -40,3 +40,5 @@ function Atendentes() {
         </main>
     )
 }
+
+export default Atendentes
