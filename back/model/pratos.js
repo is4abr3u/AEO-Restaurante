@@ -25,6 +25,9 @@ categoria:{
 descricao:{
     type: Database.db.Sequelize.STRING
 },
+foto:{
+    type: Database.db.Sequelize.STRING
+},
 
 })
 }
