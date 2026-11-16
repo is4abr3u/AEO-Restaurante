@@ -17,7 +17,7 @@ function Pedidos() {
     const [formadepagamento, setFormadepagamento] = useState('');
     const [pago, setPago] = useState(false);
 
-    // buscar: roda quando a tela abre
+    // roda quando a tela abre
     useEffect(() => {
         const carregar = async () => {
             const response = await buscarPedidos()
@@ -37,7 +37,7 @@ function Pedidos() {
         setPago(false)
     }
 
-    // criar ou alterar (se tiver id é alterar)
+    // criar ou alterar 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -51,7 +51,7 @@ function Pedidos() {
         limpar()
     }
 
-    // editar: joga os dados do pedido de volta no formulário
+    // joga os dados do pedido de volta no formulário
     const handleEditar = (pedido) => {
         setId(pedido.id)
         setNome(pedido.nome)
@@ -63,7 +63,7 @@ function Pedidos() {
         setPago(pedido.pago)
     }
 
-    // deletar
+    // deleta
     const handleDeletar = async (idPedido) => {
         await deletarPedido(idPedido)
         setPedidos(await buscarPedidos())
