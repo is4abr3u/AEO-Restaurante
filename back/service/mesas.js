@@ -22,7 +22,16 @@ class ServiceMesa {
     }
 
     async Criar(qtdpessoas, area, qtdcriancas, disponivel) {
-        if(!qtdpessoas || !area || !qtdcriancas || !disponivel) {
+        if (
+            qtdpessoas === undefined ||
+            qtdpessoas === null ||
+            typeof area !== "string" ||
+            !area.trim() ||
+            qtdcriancas === undefined ||
+            qtdcriancas === null ||
+            disponivel === undefined ||
+            disponivel === null
+        ) {
             throw new Error("Favor informar todos os dados.")
         }
 
