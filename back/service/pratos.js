@@ -11,7 +11,7 @@ if(!id){
     throw new Error ("Favor informar o id")
 }
 
-      const Pedido1 = await RepositoryPratos.Find(id)
+      const Pedido1 = await RepositoryPratos.Findall(id)
 
         if(!Pedido1){
             throw new Error ("Pedido não encontrada")
@@ -27,8 +27,8 @@ return Pedido1
     throw new Error ("Parametros invalidos")
 }
 
- const carrocriar =  await RepositoryPratos.Create(nome, preco, categoria, descricao)
- return carrocriar
+ const Pratocriar =  await RepositoryPratos.Create(nome, preco, categoria, descricao)
+ return Pratocriar
     }
 
  async   Alterar(id, nome, preco, categoria, descricao){
@@ -38,7 +38,7 @@ return Pedido1
         const Pedido2 = RepositoryPratos.Update(id, nome, preco, categoria, descricao)
 
 if(!Pedido2){
-    throw new Error ("Pedido não encontrada")
+    throw new Error ("Pedido não encontrado")
 }
 
 
@@ -52,7 +52,7 @@ async Deletar(id){
     const Pedido3 = RepositoryPratos.Delete(id)
 
         if(Pedido3 === -1){
-            throw new Error ("Pedido não encontrada")
+            throw new Error ("Pedido não encontrado")
             
         }
 
